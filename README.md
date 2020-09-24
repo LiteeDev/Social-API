@@ -9,7 +9,7 @@ Fields | Data
 username | Client Login Username
 password | Client Login Password
 auth_key1 | MD5(date(d-m-yyyy))
-auth_key2 | file hash
+client | MD5("client|web")
 
 Success Response:
 
