@@ -9,7 +9,7 @@ Fields | Data
 username | Client Login Username
 password | Client Login Password
 auth_key1 | MD5(date(d-m-yyyy))
-client | MD5("client|web")
+client | MD5("client//web")
 
 Success Response:
 
