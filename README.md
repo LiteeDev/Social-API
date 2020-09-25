@@ -4,7 +4,7 @@ Sometimes it's useful to have different levels of headings to structure your doc
 
 Link: https://social.api.cryptx.me/v1/
 
-### /v1/login/client [POST] [Desktop API Call]
+### /v1/auth/login/client [POST] [Desktop API Call]
 
 Fields | Data
 ------------ | -------------
@@ -56,7 +56,7 @@ Error Responses:
 5. Login failed: Invalid username or password
 
 
-### /v1/register/client [POST] [Desktop API Call]
+### /v1/auth/register/client [POST] [Desktop API Call]
 
 Fields | Data
 ------------ | -------------
@@ -104,6 +104,53 @@ Error Responses:
 3. API call failed: malicous string
 4. Login failed: Invalid username
 5. invalid api call parameters: register/client
+
+
+
+### /v1/account/loginhistory/client [POST] [Desktop API Call]
+
+Fields | Data
+------------ | -------------
+userId | API.User.userId
+hwid | HWID Id;
+auth_key | MD5(date(d-m-yyyy))
+
+Success Response:
+
+```json
+[
+    {
+        "ID": "",
+        "country": "GB",
+        "ip_address": "88.110.236.183",
+        "useragent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36",
+        "status": "1",
+        "timestamp": "1601026647"
+    },
+    {
+        "ID": "",
+        "country": "GB",
+        "ip_address": "88.110.236.183",
+        "useragent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36",
+        "status": "1",
+        "timestamp": "1601026698"
+    },
+    {
+        "ID": "",
+        "country": "GB",
+        "ip_address": "88.110.236.183",
+        "useragent": "client",
+        "status": "1",
+        "timestamp": "1601026884"
+    }
+]
+```
+
+Error Responses:
+1. invalid user id: please restart application
+2. invalid api security key:
+3. invalid api call parameters: loginhistory/client
+
 
 
 ### Security Based Extras
