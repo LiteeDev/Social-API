@@ -149,6 +149,24 @@ Success Response:
 ]
 ```
 
+```cs
+/*
+   Function: LoginHistory(DataGridView dataBox):
+   Response: none; Auto updates DataGridView.
+ */
+public static void LoginHistory(DataGridView dataBox) 
+{
+  string HWID = Utilities.Base64UrlEncode(Utilities.getHWID());
+  Request History = new Request(
+	  API.API_LINK + "account/loginhistory/client", 
+	  "POST", 
+	  "userId=" + API.User.userId + "&hwid=" + HWID
+  );
+  Json myDeserializedClass = JsonConvert.DeserializeObject < Json > (History.GetResponse());
+  dataBox.DataSource = myDeserializedClass.logs;
+}
+```
+
 Error Responses:
 1. invalid user id: please restart application
 2. invalid api security key:
