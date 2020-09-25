@@ -1,0 +1,14 @@
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social_Client.Login.resources
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social_Client.Properties.Resources.resources
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social-Client.csproj.GenerateResource.cache
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social-Client.csproj.CoreCompileInputs.cache
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\bin\Debug\Social-Client.exe.config
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\bin\Debug\Social-Client.exe
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\bin\Debug\Social-Client.pdb
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social-Client.csproj.CopyComplete
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social-Client.exe
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social-Client.pdb
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social_Client.Register.resources
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social_Client.Dashboard.resources
