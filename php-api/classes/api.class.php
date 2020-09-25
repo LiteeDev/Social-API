@@ -41,6 +41,25 @@
       }
     }
 
+    /*
+      Function: checkUserID($email):
+      Response: boolean (true|false)
+    */
+    public static function checkUserID($userId)
+    {
+      $Database = new DB();
+      $checkUserID = $Database->PDO->prepare("SELECT COUNT(*) FROM `tbl_users` WHERE `ID` = :userId");
+      $checkUserID->execute(array(
+          ':userId' => $userId
+      ));
+      if ($checkUserID->fetchColumn(0) == 0) {
+          return false;
+      } else {
+          return true;
+      }
+    }
+
+
 
     /*
       Function: Login($username, $password):
@@ -117,16 +136,46 @@
     public static function User($username)
     {
         $Database         = new DB();
-        $grabApplications = $Database->PDO->query("SELECT ID AS ID,
+        $User = $Database->PDO->query("SELECT ID AS ID,
         AES_DECRYPT(username, '" . DATABASE_SALT . "') AS username,
         AES_DECRYPT(email, '" . DATABASE_SALT . "') AS email,
         AES_DECRYPT(role, '" . DATABASE_SALT . "') AS role,
         AES_DECRYPT(lastLogin, '" . DATABASE_SALT . "') AS lastLogin,
         AES_DECRYPT(created, '" . DATABASE_SALT . "') AS created FROM `tbl_users` WHERE `username` = AES_ENCRYPT('$username', '" . DATABASE_SALT . "')");
-        while ($UserInfo = $grabApplications->fetch(PDO::FETCH_ASSOC)) {
+        while ($UserInfo = $User->fetch(PDO::FETCH_ASSOC)) {
+            $encodedId = Encryption::encryptURI($UserInfo['ID'], USER_SALT);
+            $UserInfo['userId'] = $encodedId;
             $UserInfo['Authed'] = true;
             return $UserInfo;
         }
+    }
+
+
+    /*
+      Function: User($username):
+      Response:
+      array("result" => true, "data" => array(
+        "username" => "test",
+        "email" => "test@gmail.com",
+        "hwid" => "hwid",
+        "lastLogin" => time(),
+      )
+    */
+    public static function LoginHistory($userId)
+    {
+        $Database         = new DB();
+        $LogArray['Logs'] = array();
+        $LoginHistory = $Database->PDO->query("SELECT ID AS ID,
+        AES_DECRYPT(country, '" . DATABASE_SALT . "') AS country,
+        AES_DECRYPT(ip_address, '" . DATABASE_SALT . "') AS ip_address,
+        AES_DECRYPT(useragent, '" . DATABASE_SALT . "') AS useragent,
+        AES_DECRYPT(status, '" . DATABASE_SALT . "') AS status,
+        AES_DECRYPT(timestamp, '" . DATABASE_SALT . "') AS timestamp FROM `tbl_loginlogs` WHERE `userID` = AES_ENCRYPT('$userId', '" . DATABASE_SALT . "')");
+        while ($Log = $LoginHistory->fetch(PDO::FETCH_ASSOC)) {
+            unset($Log['ID']);
+            array_push($LogArray['Logs'], $Log);
+        }
+        return $LogArray;
     }
 
 

@@ -174,6 +174,106 @@ Error Responses:
 
 ---
 
+### /v1/friends/add/client [POST] [Desktop API Call]
+
+Fields | Data
+------------ | -------------
+userId | BASE64(API.User.userId)
+friendId | BASE64(friendId)
+hwid | BASE64(HWID)
+auth_key | MD5(date(d-m-yyyy))
+
+Success Response:
+
+```json
+[
+    {
+        "result": "true"
+    },
+]
+```
+
+```cs
+/*
+   Function: AddFriend(friendId):
+   Response: none; Auto updates DataGridView.
+*/
+public static Boolean AddFriend(string friendId)
+{
+   string base64friendId = Utilities.Base64UrlEncode(friendId);
+   string base64userId = Utilities.Base64UrlEncode(API.User.userId);
+   string HWID = Utilities.Base64UrlEncode(Utilities.getHWID());
+   Request Login = new Request(
+       API.API_LINK + "friends/add/client",
+       "POST",
+       "friendId=" + base64friendId + "&userId=" + base64userId + "&hwid=" + HWID
+   );
+   Status Status = JsonConvert.DeserializeObject<Status>(Login.GetResponse());
+   if (Status.result)
+   {
+      MessageBox.Show("Friend Failed: " + Status.message);
+      return true;
+   }
+   else
+   {
+      MessageBox.Show("Friend Failed: " + Status.message);
+      return false;
+   }
+}
+```
+
+Error Responses:
+1. pending request already exists
+2. friend & userid cannot match
+3. friend or userid was invalid
+4. invalid api call parameters: friends/add
+
+---
+
+### /v1/friends/list/client [POST] [Desktop API Call]
+
+Fields | Data
+------------ | -------------
+userId | BASE64(API.User.userId)
+hwid | BASE64(HWID)
+auth_key | MD5(date(d-m-yyyy))
+
+Success Response:
+
+```json
+[
+    {
+        "result": "true"
+    },
+]
+```
+
+```cs
+/*
+   Function: LoginHistory(DataGridView dataBox):
+   Response: none; Auto updates DataGridView.
+*/
+public static void Friends(DataGridView dataBox)
+{
+   
+   string base64userid = Utilities.Base64UrlEncode(API.User.userId);
+   string HWID = Utilities.Base64UrlEncode(Utilities.getHWID());
+   
+   Request FriendsList = new Request(
+         API.API_LINK + "friends/list/client",
+         "POST",
+         "userId=" + base64userid + "&hwid=" + HWID
+   );
+
+   Json myDeserializedClass = JsonConvert.DeserializeObject<Json>(FriendsList.GetResponse());
+   dataBox.DataSource = myDeserializedClass.FriendList;
+}
+```
+
+Error Responses:
+1. invalid userID call.
+2. invalid api call parameters: list/client
+
 ### Security Based Extras
 
 Idea | POC | Completed
