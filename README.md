@@ -241,11 +241,9 @@ auth_key | MD5(date(d-m-yyyy))
 Success Response:
 
 ```json
-[
-    {
-        "result": "true"
-    },
-]
+{
+    "FriendList": []
+}
 ```
 
 ```cs
