@@ -4,6 +4,8 @@ Sometimes it's useful to have different levels of headings to structure your doc
 
 Link: https://social.api.cryptx.me/v1/
 
+---
+
 ### /v1/auth/login/client [POST] [Desktop API Call]
 
 Fields | Data
@@ -55,6 +57,7 @@ Error Responses:
 4. Login failed: Invalid username
 5. Login failed: Invalid username or password
 
+---
 
 ### /v1/auth/register/client [POST] [Desktop API Call]
 
@@ -105,7 +108,7 @@ Error Responses:
 4. Login failed: Invalid username
 5. invalid api call parameters: register/client
 
-
+---
 
 ### /v1/account/loginhistory/client [POST] [Desktop API Call]
 
@@ -151,7 +154,7 @@ Error Responses:
 2. invalid api security key:
 3. invalid api call parameters: loginhistory/client
 
-
+---
 
 ### Security Based Extras
 
