@@ -106,3 +106,12 @@ Error Responses:
 5. invalid api call parameters: register/client
 
 
+### Security Based Extras
+
+Idea | POC | Completed
+------------ | -------------
+User-Agent | A dynamic list of User-Agents that API can check and validate if this request was made by an Authorized Application | :no_smoking:
+Auth-Key | A key which is dynamic of the date value ("d-m-yyyy") encoded with MD5 and sent with each HTTP Request | :chart:
+Hardware Unique Identifer | A key which is  set by the value of the client using the Mobo, Hard Drive and CPU Serial encoded with MD5 and sent with each HTTP Request (Optional Option for each user) | :no_smoking:
+
+
