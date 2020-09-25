@@ -23,6 +23,10 @@ namespace Social_Client
             // API Calls.
             userLbl.Text = API.User.username;
             emailLbl.Text = API.User.email;
+            encodedLbl.Text = API.User.userId;
+
+            // Login History 
+            API.LoginHistory(loginHistoryBox);
             
             // Unix timestamp is seconds past epoch
             System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
@@ -46,6 +50,17 @@ namespace Social_Client
             {
                 e.Cancel = true;
             }
+        }
+
+        private void copyIdbtn(object sender, EventArgs e)
+        {
+            Clipboard.SetText(encodedLbl.Text.ToString());
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Friends FriendForm = new Friends();
+            FriendForm.Show();
         }
     }
 }

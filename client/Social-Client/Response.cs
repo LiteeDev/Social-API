@@ -14,6 +14,7 @@ namespace Social_Client
 
     public class User
     {
+        public string userId { get; set; }
         public string username { get; set; }
         public string email { get; set; }
         public string role { get; set; }
@@ -22,4 +23,28 @@ namespace Social_Client
         public bool Authed { get; set; }
         public string error { get; set; }
     }
+
+    public class LGN
+    {
+        public string country { get; set; }
+        public string ip_address { get; set; }
+        public string useragent { get; set; }
+        public string status { get; set; }
+        public string timestamp { get; set; }
+    }
+
+    public class Friend
+    {
+        public string username { get; set; }
+        public string email { get; set; }
+        public string status { get; set; }
+    }
+
+    public class Json
+    {
+        public List<LGN> Logs { get; set; }
+        public List<Friend> FriendList { get; set; }
+    }
+
+
 }

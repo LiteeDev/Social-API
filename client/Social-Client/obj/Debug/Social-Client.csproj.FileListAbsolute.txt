@@ -12,3 +12,5 @@ C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social-Clien
 C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social-Client.pdb
 C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social_Client.Register.resources
 C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social_Client.Dashboard.resources
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social-Client.csprojAssemblyReference.cache
+C:\Users\Inspire\source\repos\Social-Client\Social-Client\obj\Debug\Social_Client.Friends.resources

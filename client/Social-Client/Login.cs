@@ -25,14 +25,10 @@ namespace Social_Client
             if(API.Login(username, password))
             {
                 // Set user session and start main form;
-                MessageBox.Show("Welcome Back," + API.User.username + ".");
+                MessageBox.Show("Welcome Back, " + API.User.username + "!");
                 this.Hide();
                 var Dashboard = new Dashboard();
                 Dashboard.ShowDialog();
-            }
-            else
-            {
-                //MessageBox.Show("Incorrect Login Details");
             }
         }
 
